@@ -39,12 +39,12 @@ let spaceKid = new OddProducts('spaceKid');
 let unicorn = new OddProducts('unicorn');
 let waterCan = new OddProducts('water-can');
 let wine = new OddProducts('wine-glass');
-let fancyDuck = new OddProducts('duck-fancy', 'png');
 
-let allOddProducts = [bag, banana, bathroom, boots, breakfast, bubblegum, chair, cthulhu, dogDuck, dragon, pen, petSweep, scissors, shark, sweep, spaceKid, unicorn, waterCan, wine, fancyDuck];
+let allOddProducts = [bag, banana, bathroom, boots, breakfast, bubblegum, chair, cthulhu, dogDuck, dragon, pen, petSweep, scissors, shark, sweep, spaceKid, unicorn, waterCan, wine];
 console.log(allOddProducts);
 
 function selectRandomOddProducts() {
+
   return Math.floor(Math.random() * allOddProducts.length);
 }
 
@@ -59,10 +59,10 @@ function renderOddProducts() {
   }
 
   product1.src = allOddProducts[odd1].src;
-  product2.alt = allOddProducts[odd2].name;
+  product1.alt = allOddProducts[odd1].name;
   allOddProducts[odd1].views++;
 
-  product1.src = allOddProducts[odd1].src;
+  product2.src = allOddProducts[odd2].src;
   product2.alt = allOddProducts[odd2].name;
   allOddProducts[odd2].views++;
 }
@@ -70,7 +70,7 @@ function renderOddProducts() {
 function renderResults() {
   for (let i= 0; i < allOddProducts.length; i++) {
     let li = document.createElement('li');
-    li.textContent = `${allOddProducts[i].name} had ${allOddProducts[i].views} views and ${allOddProducts.score} votes`;
+    li.textContent = `${allOddProducts[i].name} had ${allOddProducts[i].views} views and ${allOddProducts[i].score} votes`;
     results.appendChild(li);
   }
 }
@@ -81,10 +81,11 @@ function handleClick(event) {
   }
   console.log(event.target.alt);
   howManyTimesUserHasVoted++;
-  let clickedOddProduct = event.target.alt;
+  let clickedOddProducts = event.target.alt;
 
   for (let i = 0; i < allOddProducts.length; i++) {
-    if (clickedOddProduct === allOddProducts[i].name) {
+    if (clickedOddProducts === allOddProducts[i].name) {
+      console.log(allOddProducts[i]);
       allOddProducts[i].score++;
       break;
     }

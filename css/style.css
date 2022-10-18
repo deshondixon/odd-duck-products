@@ -1,5 +1,5 @@
 h1 {
-  font-family: 'Pacifico', cursive;
+  font-family: 'Nabla';
   text-align: center;
   font-size: 5rem;
   padding: 3rem;
@@ -9,19 +9,19 @@ h1 {
 }
 
 body {
-  background-color: rgb(252, 216, 116);
+  background-color: rgb(113, 0, 161);
   margin: auto;
 }
 
 section + div {
-  font-family: 'Pacifico', cursive;
+  font-family: 'Nabla';
   font-size: 1rem;
   color: rgb(248, 116, 0);
   text-shadow: 2px 2px 3px #6d310b;
   padding: .5rem 1rem;
   width:max-content;
   height:max-content;
-  margin: 2rem auto;
+  margin: 2rem;
   background-color: rgb(31, 31, 31);
   border-radius: .3rem;
   box-shadow: 3px 4px 5px #2e2e2e;
@@ -33,11 +33,12 @@ section + div {
 
 ul {
   margin: 37rem auto;
+  line-height: 3.2rem;
   display: grid;
   grid-row: 3;
   grid-column: 1;
   text-align: center;
-  font-family: 'Pacifico', cursive;
+  font-family: 'Nabla';
   font-size: 2rem;
   color: rgb(248, 116, 0);
   text-shadow: 2px 2px 3px #461b00;
@@ -65,7 +66,7 @@ section img {
 }
 
 section img:hover {
-  border: 20px inset rgb(176, 84, 8);
+  border: 20px inset rgb(185, 83, 5);
   cursor: pointer;
 }
 
@@ -90,10 +91,10 @@ section img:hover {
 
  footer {
   padding: 5rem;
-  margin: 1rem auto;
-  width: 10rem auto;
+  margin: -8.3rem auto;
+  width: 69.5rem;
   text-align: right;
-  font-family: 'Pacifico';
+  font-family: 'Nabla';
   font-size: .6rem;
   color: rgb(0, 0, 0);
   text-shadow: 2px 2px 3px #6d310b;
@@ -113,7 +114,7 @@ section img:hover {
   pointer-events: auto;
  }
 
- section + div.click:hover {
+ section + div.clicks-allowed:hover {
   background-color: rgb(255, 142, 72);
   color: rgb(0, 0, 0);
  }
