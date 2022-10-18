@@ -84,7 +84,7 @@ function handleClick(event) {
   let clickedOddProduct = event.target.alt;
 
   for (let i = 0; i < allOddProducts.length; i++) {
-    if (event.target.alt === allOddProducts[i].name) {
+    if (clickedOddProduct === allOddProducts[i].name) {
       allOddProducts[i].score++;
       break;
     }
