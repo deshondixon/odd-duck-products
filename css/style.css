@@ -79,9 +79,9 @@ section img:hover {
  }
 
  #siteLogo {
-  margin: 1rem;
+  margin: .5rem;
   height: auto;
-  width: 250px ;
+  width: 300px ;
   z-index: 3;
   grid-column-start: 1;
   grid-column-end: 3;
