@@ -5,10 +5,11 @@ h1 {
   padding: 3rem;
   margin: 1rem auto;
   color: rgb(248, 116, 0);
-  text-shadow: 2px 2px 3px #532000;
+  text-shadow: 2px 2px 9px ;
 }
 
 body {
+  background-image: url();
   background-color: rgb(113, 0, 161);
   margin: auto;
 }
@@ -41,12 +42,12 @@ ul {
   font-family: 'Nabla';
   font-size: 2rem;
   color: rgb(248, 116, 0);
-  text-shadow: 2px 2px 3px #461b00;
+  text-shadow: 2px 2px 3px #242424;
 }
 
 section {
   background-color: rgb(248, 116, 0);
-  box-shadow: 7px 6px 8px #532000;
+  box-shadow: 7px 6px 8px #242424;
   border-radius: 2rem;
   padding: 3rem;
   width: 1024px;
@@ -96,8 +97,8 @@ section img:hover {
   text-align: right;
   font-family: 'Nabla';
   font-size: .6rem;
-  color: rgb(0, 0, 0);
-  text-shadow: 2px 2px 3px #6d310b;
+  color: rgb(194, 119, 0);
+  text-shadow: 2px 1.5px 4px;
  }
 
  section + div.click {
@@ -118,3 +119,5 @@ section img:hover {
   background-color: rgb(255, 142, 72);
   color: rgb(0, 0, 0);
  }
+
+ 
