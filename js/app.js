@@ -8,7 +8,7 @@ let results = document.querySelector('ul');
 let product1 = document.querySelector('section img:first-child');
 let product2 = document.querySelector('section img:nth-child(2)');
 let howManyTimesUserHasVoted = 0;
-let maxNumberOfVotes = 17;
+let maxNumberOfVotes = 25;
 
 
 function OddProducts(name, fileExtension = 'jpg') {
@@ -53,7 +53,7 @@ function renderOddProducts() {
       indexArray.push(ranProd);
     }
   }
-  console.log(indexArray);
+  //console.log(indexArray);
   let odd1 = indexArray.shift();
   let odd2 = indexArray.shift();
 
@@ -64,18 +64,37 @@ function renderOddProducts() {
   product2.src = allOddProducts[odd2].src;
   product2.alt = allOddProducts[odd2].name;
   allOddProducts[odd2].views++;
+
 }
 
 
 function renderResults() {
 }
 
-function handleClick(event) {
-  if (event.target === myContainer) {
+function storeOddProducts() {
+  console.log(OddProducts);
+  let stringifiedOddProducts = JSON.stringify(OddProducts);
+  console.log(stringifiedOddProducts);
+  localStorage.setItem('products', stringifiedOddProducts);
+}
+
+function getOddProducts() {
+  let potentialOddProducts = localStorage.getItem('products');
+  if (potentialOddProducts) {
+  let parsedProducts = JSON.parse(potentialOddProducts);
+  }
+  console.log(parsedProducts);
+  for (let product of parsedProducts) {
+
+ }
+}
+
+function handleClick(e) {
+  if (e.target === myContainer) {
     alert('Select product')
   }
   howManyTimesUserHasVoted++;
-  let clickedOddProducts = event.target.alt;
+  let clickedOddProducts = e.target.alt;
 
   for (let i = 0; i < allOddProducts.length; i++) {
     if (clickedOddProducts === allOddProducts[i].name) {
@@ -91,6 +110,7 @@ function handleClick(event) {
   } else {
     renderOddProducts();
   }
+  storeOddProducts();
 }
 
 function renderChart() {
@@ -148,6 +168,6 @@ function renderChart() {
 
 }
 
-myContainer.addEventListener('click', handleClick);
-
+console.log(indexArray)
 renderOddProducts();
+myContainer.addEventListener('click', handleClick);
