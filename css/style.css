@@ -7,13 +7,11 @@ h1 {
   color: rgb(248, 116, 0);
   text-shadow: 2px 2px 9px ;
 }
-
 body {
   background-image: url();
   background-color: rgb(113, 0, 161);
   margin: auto;
 }
-
 section + div {
   font-family: 'Nabla';
   font-size: 1rem;
@@ -31,7 +29,6 @@ section + div {
   grid-column: 1;
   pointer-events: none;
 }
-
 ul {
   margin: 37rem auto;
   line-height: 3.2rem;
@@ -44,7 +41,6 @@ ul {
   color: rgb(248, 116, 0);
   text-shadow: 2px 2px 3px #242424;
 }
-
 section {
   background-color: rgb(248, 116, 0);
   box-shadow: 7px 6px 8px #242424;
@@ -58,28 +54,24 @@ section {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center; 
+  align-items: center;
 }
-
 section img {
   width: 450px;
   max-height: 26rem;
 }
-
 section img:hover {
   border: 20px inset rgb(185, 83, 5);
   cursor: pointer;
 }
-
- main {
+main {
   width: auto;
   margin: auto;
   display: grid;
   grid-template-columns: 85rem;
   grid-template-rows: 6.5rem 2rem 40rem 40%;
- }
-
- #siteLogo {
+}
+#siteLogo {
   margin: .5rem;
   height: auto;
   width: 300px ;
@@ -88,9 +80,8 @@ section img:hover {
   grid-column-end: 3;
   grid-row-start: 3;
   grid-row-end: 5;
- }
-
- footer {
+}
+footer {
   padding: 5rem;
   margin: -8.3rem auto;
   width: 69.5rem;
@@ -99,25 +90,22 @@ section img:hover {
   font-size: .6rem;
   color: rgb(194, 119, 0);
   text-shadow: 2px 1.5px 4px;
- }
-
- section + div.click {
+}
+section + .click {
   background-color: rgb(248, 116, 0);
   color: rgb(245, 245, 245);
   cursor: pointer;
   pointer-events: auto;
- }
-
- section + div.clicks-allowed {
+}
+section + div.clicks-allowed {
   background-color: rgb(248, 116, 0);
   color: rgb(245, 245, 245);
   cursor: pointer;
   pointer-events: auto;
- }
-
- section + div.clicks-allowed:hover {
+}
+section + div.clicks-allowed:hover {
   background-color: rgb(255, 142, 72);
   color: rgb(0, 0, 0);
- }
+}
 
  
