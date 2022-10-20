@@ -59,11 +59,11 @@ function renderOddProducts() {
 
   product1.src = allOddProducts[odd1].src;
   product1.alt = allOddProducts[odd1].name;
-  allOddProducts[odd1].views++;
+  allOddProducts[odd1].views += 1;
 
   product2.src = allOddProducts[odd2].src;
   product2.alt = allOddProducts[odd2].name;
-  allOddProducts[odd2].views++;
+  allOddProducts[odd2].views += 1;
 
 }
 
@@ -93,12 +93,12 @@ function handleClick(e) {
   if (e.target === myContainer) {
     alert('Select product')
   }
-  howManyTimesUserHasVoted++;
+  howManyTimesUserHasVoted += 1;
   let clickedOddProducts = e.target.alt;
 
-  for (let i = 0; i < allOddProducts.length; i++) {
+  for (let i = 0; i < allOddProducts.length; i += 1) {
     if (clickedOddProducts === allOddProducts[i].name) {
-      allOddProducts[i].score++;
+      allOddProducts[i].score += 1;
       break;
     }
   }
@@ -117,7 +117,7 @@ function renderChart() {
   let OddProductsNames = [];
   let OddProductsViews = [];
   let OddProductsScore = [];
-  for (let i = 0; i < allOddProducts.length; i++) {
+  for (let i = 0; i < allOddProducts.length; i += 1) {
     OddProductsNames.push(allOddProducts[i].name);
     OddProductsViews.push(allOddProducts[i].views);
     OddProductsScore.push(allOddProducts[i].score);
