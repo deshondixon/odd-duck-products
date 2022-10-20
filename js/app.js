@@ -1,15 +1,12 @@
-'use strict';
+const indexArray = [];
 
-let indexArray = [];
-
-let myContainer = document.querySelector('section');
-let resultBtn = document.querySelector('section + div');
-let results = document.querySelector('ul');
-let product1 = document.querySelector('section img:first-child');
-let product2 = document.querySelector('section img:nth-child(2)');
+const myContainer = document.querySelector('section');
+const resultBtn = document.querySelector('section + div');
+const results = document.querySelector('ul');
+const product1 = document.querySelector('section img:first-child');
+const product2 = document.querySelector('section img:nth-child(2)');
 let howManyTimesUserHasVoted = 0;
-let maxNumberOfVotes = 25;
-
+const maxNumberOfVotes = 25;
 
 function OddProducts(name, fileExtension = 'jpg') {
   this.name = name;
@@ -19,43 +16,42 @@ function OddProducts(name, fileExtension = 'jpg') {
   this.views = 0;
 }
 
-let bag = new OddProducts('bag');
-let banana = new OddProducts('banana');
-let bathroom = new OddProducts('bathroom');
-let boots = new OddProducts('boots');
-let breakfast = new OddProducts('breakfast');
-let bubblegum = new OddProducts('bubblegum');
-let chair = new OddProducts('chair');
-let cthulhu = new OddProducts('cthulhu');
-let dogDuck = new OddProducts('dog-duck');
-let dragon = new OddProducts('dragon');
-let pen = new OddProducts('pen');
-let petSweep = new OddProducts('pet-sweep');
-let scissors = new OddProducts('scissors');
-let shark = new OddProducts('shark');
-let sweep = new OddProducts('sweep', 'png');
-let spaceKid = new OddProducts('spaceKid');
-let unicorn = new OddProducts('unicorn');
-let waterCan = new OddProducts('water-can');
-let wine = new OddProducts('wine-glass');
+const bag = new OddProducts('bag');
+const banana = new OddProducts('banana');
+const bathroom = new OddProducts('bathroom');
+const boots = new OddProducts('boots');
+const breakfast = new OddProducts('breakfast');
+const bubblegum = new OddProducts('bubblegum');
+const chair = new OddProducts('chair');
+const cthulhu = new OddProducts('cthulhu');
+const dogDuck = new OddProducts('dog-duck');
+const dragon = new OddProducts('dragon');
+const pen = new OddProducts('pen');
+const petSweep = new OddProducts('pet-sweep');
+const scissors = new OddProducts('scissors');
+const shark = new OddProducts('shark');
+const sweep = new OddProducts('sweep', 'png');
+const spaceKid = new OddProducts('spaceKid');
+const unicorn = new OddProducts('unicorn');
+const waterCan = new OddProducts('water-can');
+const wine = new OddProducts('wine-glass');
 
-let allOddProducts = [bag, banana, bathroom, boots, breakfast, bubblegum, chair, cthulhu, dogDuck, dragon, pen, petSweep, scissors, shark, sweep, spaceKid, unicorn, waterCan, wine];
+const allOddProducts = [bag, banana, bathroom, boots, breakfast, bubblegum, chair, cthulhu, dogDuck, dragon, pen, petSweep, scissors, shark, sweep, spaceKid, unicorn, waterCan, wine];
 
 function selectRandomOddProducts() {
   return Math.floor(Math.random() * allOddProducts.length);
 }
 
 function renderOddProducts() {
-
   while (indexArray.length < 19) {
-    let ranProd = selectRandomOddProducts ();
+    const ranProd = selectRandomOddProducts();
     if (!indexArray.includes(ranProd)) {
       indexArray.push(ranProd);
     }
   }
-  //console.log(indexArray);
-  let odd1 = indexArray.shift();
-  let odd2 = indexArray.shift();
+  // console.log(indexArray);
+  const odd1 = indexArray.shift();
+  const odd2 = indexArray.shift();
 
   product1.src = allOddProducts[odd1].src;
   product1.alt = allOddProducts[odd1].name;
@@ -64,37 +60,34 @@ function renderOddProducts() {
   product2.src = allOddProducts[odd2].src;
   product2.alt = allOddProducts[odd2].name;
   allOddProducts[odd2].views += 1;
-
 }
 
-
-function renderResults() {
-}
+function renderResults() {}
 
 function storeOddProducts() {
   console.log(OddProducts);
-  let stringifiedOddProducts = JSON.stringify(OddProducts);
+  const stringifiedOddProducts = JSON.stringify(OddProducts);
   console.log(stringifiedOddProducts);
   localStorage.setItem('products', stringifiedOddProducts);
 }
 
 function getOddProducts() {
-  let potentialOddProducts = localStorage.getItem('products');
+  const potentialOddProducts = localStorage.getItem('products');
   if (potentialOddProducts) {
-  let parsedProducts = JSON.parse(potentialOddProducts);
+    const parsedProducts = JSON.parse(potentialOddProducts);
   }
   console.log(parsedProducts);
-  for (let product of parsedProducts) {
+  for (const product of parsedProducts) {
 
- }
+  }
 }
 
 function handleClick(e) {
   if (e.target === myContainer) {
-    alert('Select product')
+    alert('Select product');
   }
   howManyTimesUserHasVoted += 1;
-  let clickedOddProducts = e.target.alt;
+  const clickedOddProducts = e.target.alt;
 
   for (let i = 0; i < allOddProducts.length; i += 1) {
     if (clickedOddProducts === allOddProducts[i].name) {
@@ -105,7 +98,7 @@ function handleClick(e) {
   if (howManyTimesUserHasVoted === maxNumberOfVotes) {
     myContainer.removeEventListener('click', handleClick);
     resultBtn.className = 'clicks-allowed';
-    resultBtn.addEventListener('click', renderChart)
+    resultBtn.addEventListener('click', renderChart);
     renderChart();
   } else {
     renderOddProducts();
@@ -114,9 +107,9 @@ function handleClick(e) {
 }
 
 function renderChart() {
-  let OddProductsNames = [];
-  let OddProductsViews = [];
-  let OddProductsScore = [];
+  const OddProductsNames = [];
+  const OddProductsViews = [];
+  const OddProductsScore = [];
   for (let i = 0; i < allOddProducts.length; i += 1) {
     OddProductsNames.push(allOddProducts[i].name);
     OddProductsViews.push(allOddProducts[i].views);
@@ -124,50 +117,46 @@ function renderChart() {
   }
   const data = {
     labels: OddProductsNames,
-    datasets: [
-      {
-        label: '# of views',
-        data: OddProductsViews,
-        backgroundColor: [
-          'yellow'
-        ],
-        borderColor: [
-          'orange'
-        ],
-        borderWidth: 7
-      },
-      {
-        label: '# of votes',
-        data: OddProductsScore,
-        backgroundColor: [
-          'red'
-        ],
-        borderColor: [
-          'blue'
-        ],
-        borderWidth: 4
-      }
-    ]
+    datasets: [{
+      label: '# of views',
+      data: OddProductsViews,
+      backgroundColor: [
+        'yellow',
+      ],
+      borderColor: [
+        'orange',
+      ],
+      borderWidth: 7,
+    }, {
+      label: '# of votes',
+      data: OddProductsScore,
+      backgroundColor: [
+        'red',
+      ],
+      borderColor: [
+        'blue',
+      ],
+      borderWidth: 4,
+    }],
   };
   const config = {
     type: 'bar',
-    data: data,
+    data,
     options: {
-      indexAxis:'y',
+      indexAxis: 'y',
       scales: {
         y: {
-          stacked:true
+          stacked: true,
         },
-      }
-    }
+      },
+    },
   };
   const myChart = new Chart(
     document.getElementById('myChart'),
-    config
+    config,
   );
-
 }
 
-console.log(indexArray)
+console.log(indexArray);
 renderOddProducts();
 myContainer.addEventListener('click', handleClick);
