@@ -66,9 +66,9 @@ function renderResults() {}
 
 function storeOddProducts() {
   console.log(OddProducts);
-  const stringifiedOddProducts = JSON.stringify(OddProducts);
-  console.log(stringifiedOddProducts);
-  localStorage.setItem('products', stringifiedOddProducts);
+  const jsonOddProducts = JSON.stringify(OddProducts);
+  console.log(jsonOddProducts);
+  localStorage.setItem('products', OddProducts);
 }
 
 function getOddProducts() {
